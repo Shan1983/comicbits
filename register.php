@@ -36,7 +36,7 @@ if (isset($_POST['register'])) {
                     }
                     // lets register a user..
                     if ($user->register($data)) {
-                        redirect('index.php', 'Oh Yeah! Your registration was successful!', 'success');
+                        redirect('index.php', 'Oh Yeah! Your registration was successful! <a href="login.php">Login now!</a>', 'success');
                     } else {
                         redirect('register.php', 'Something went wrong! We like you we really do, could you try it again?', 'error');
                     }

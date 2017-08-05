@@ -70,23 +70,34 @@ class User {
         }
 
         public function register($data) {
-            // insert the user into the database
-            $this->db->query('INSERT INTO users 
-                              (name, email, avatar, username, password, membership)
-                              VALUES (:name, :email, :avatar, :username, :password, :membership)');
-            // bind the prepared statements
-            $this->db->bind(':name', $data['name']);
+            
+            // check email is already in use
+            $this->db->query("SELECT email FROM users WHERE email = :email");
             $this->db->bind(':email', $data['email']);
-            $this->db->bind(':avatar', $data['avatar']);
-            $this->db->bind(':username', $data['username']);
-            $this->db->bind(':password', password_hash($data['password'], PASSWORD_DEFAULT));
-            $this->db->bind(':membership', $data['membership']);
-
-            // make it work
-            if($this->db->execute()) {
-                return true;
+            $result = $this->db->single();
+            
+            if ($result) {
+                redirect('register.php', 'That email is already in use try <a href="login.php">logging in</a>', 'error');
             }else {
-                return false;
+            
+                // insert the user into the database
+                $this->db->query('INSERT INTO users 
+                                  (name, email, avatar, username, password, membership)
+                                  VALUES (:name, :email, :avatar, :username, :password, :membership)');
+                // bind the prepared statements
+                $this->db->bind(':name', $data['name']);
+                $this->db->bind(':email', $data['email']);
+                $this->db->bind(':avatar', $data['avatar']);
+                $this->db->bind(':username', $data['username']);
+                $this->db->bind(':password', password_hash($data['password'], PASSWORD_DEFAULT));
+                $this->db->bind(':membership', $data['membership']);
+    
+                // make it work
+                if($this->db->execute()) {
+                    return true;
+                }else {
+                    return false;
+                }
             }
 
             // they should now be registered..
