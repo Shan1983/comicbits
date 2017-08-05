@@ -13,7 +13,7 @@
             <a href="login.php" class="btn-block btn btn-default">Login</a>
             <?php }else { ?>
                 <img class="pull-right" src="images/avatars/<?php echo $_SESSION['avatar']; ?>" alt="users avatar" height="50" width="50">
-                <h4>Howdy, <strong><?php echo $_SESSION['username']; ?></strong><hr> </h4>
+                <h4>Howdy, <strong><a href="profile.php?user=<?php echo $_SESSION['user_id'];?>"><?php echo $_SESSION['username']; ?></a></strong><hr> </h4>
                 <div class="clearfix"></div>
                 <small>Member since: <?php echo formatDate($_SESSION['created_at']); ?></small><br><br>
                 <form action="logout.php" method="post">
