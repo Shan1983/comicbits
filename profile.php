@@ -4,15 +4,18 @@
  */
 require('core/init.php');
 $articles = new Article();
+$user = new User();
 
+$uid = $_GET['user'];
 
 // use the template..
 $template = new Template('views/userprofile.php');
+$template->userMember = $user->fetchUserData($uid);
 
-if (!empty($_GET['user'])) {
-    // set up for ajax or anything else that goes on the users profile..
-}else{
-    redirect('index.php', 'Something went wrong :(', 'error');
+if (isset($_POST['do_make_admin'])) {
+
+    $user->makeAdmin($uid);
+    redirect('index.php', 'Sweet! New admin has been crowned!', 'success');
 }
 
 

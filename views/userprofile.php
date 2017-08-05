@@ -12,7 +12,12 @@
             <div class="main-col">
                 <!-- TODO setup block for main curved background -->
                 <div class="block">
-                    <h1 class="pull-left">G'day <?php echo $_SESSION['username']; ?></h1>
+                    <h1 class="pull-left">G'day <?php echo $userMember->username; ?></h1>
+                    <?php if(userType($userMember->id) != 'Admin') { ?>
+                    <form method="post" action="profile.php?user=<?php echo $userMember->id ?>">
+                       <button name="do_make_admin" type="submit"  class="btn btn-success pull-right" value="<?php echo $userMember->id;?>">Make user an Administrator!</button>
+                     </form>
+                    <?php } ?>
                     <div class="clearfix"></div>
                     <hr>
                     <h1>Ajax Image uploader coming soon..</h1>

@@ -153,6 +153,27 @@ class User {
         unset($_SESSION['created_at']);
         return true;
     }
+    
+    // make a new admin
+    public function makeAdmin($id) {
+        $this->db->query("UPDATE users SET membership = '1' WHERE id = :id");
+        $this->db->bind(':id', $id);
+        if ($this->db->execute()){
+            return true;
+        }else {
+            return false;
+        } 
+    }
+    
+    // get all the users data for the profile
+    public function fetchUserData($uid) {
+        $this->db->query("SELECT * FROM users WHERE id = :id");
+        $this->db->bind(':id', $uid);
+        
+        $result = $this->db->single();
+        
+        return $result;
+    }
 
 
 }
