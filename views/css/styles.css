@@ -2,6 +2,8 @@ body {
     padding-top: 50px;
     background: #fafafa;
     font-size: 15px;
+    
+    
 }
 
 ul {
@@ -69,3 +71,60 @@ a.list-group-item:hover, a.list-group-item:focus {
     background: rgba(233,212,96, 0.5);
 
 }
+
+/* Comments */
+	#divCommentForm {
+			display: none;
+		}
+		.comment-list {
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+		}
+		.comment-wrapper {
+			margin-top: 10px;
+
+			width: 100%;
+			padding: 0 10px 10px 10px;
+		}
+		.comment-item-wrapper {
+			margin-top: 10px;
+		}
+		.comment-loading {
+			display: none;
+			text-align: center;
+			padding-top: 10px;
+		}
+		.comment-user {
+			float: left;
+			font-weight: bold;
+			color: #a42828;
+			font-size: 10pt;
+		}
+		.comment-time {
+			padding-left: 15px;
+			padding-top: 3px;
+			float: left;
+			font-weight: normal;
+			color: #656c7a;
+			font-size: 8pt;
+		}
+		.comment-text {
+			margin-top: 2px;
+			font-weight: normal;
+			color: #333333;
+			font-size: 9pt;
+		}
+		.comment-reply {
+			margin-top: 2px;
+			font-weight: normal;
+			color: #656c7a;
+			font-size: 8pt;
+			cursor: pointer;
+		}
+		.comment-focus .comment-block {
+			background-color: #eaeaea;
+		}
+		.no-comment {
+			padding-top: 10px;
+		}
