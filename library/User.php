@@ -43,7 +43,7 @@ class User {
                         || ($_FILES['avatar']['type'] == "image/jpeg")
                         || ($_FILES['avatar']['type'] == "image/jpg")
                         || ($_FILES['avatar']['type'] == "image/png"))
-                    && ($_FILES['avatar']['size'] < 100000)
+                    && ($_FILES['avatar']['size'] < 2000000)
                     && in_array($extension, $allowedExtensions)
                 ) {
 

@@ -1,9 +1,10 @@
 
 	<?php include('./partials/_header.php');
-    if(!isset($_SESSION['is_logged_in'])){
-    // send them packing
-    redirect('index.php', "You need to be logged in to view this page!", 'warning');
-    } ?>
+    // if(!isset($_SESSION['is_logged_in'])){
+    // // send them packing
+    // redirect('index.php', "You need to be logged in to view this page!", 'warning');
+    // } 
+    ?>
 <?php echo displayMessage(); ?>
 <div class="jumbotron text-center">
     <h1 ><?php echo $article->title;?></h1>
@@ -27,15 +28,21 @@
                 <div class="block">
                     <div class="row">
                         <div class="col-md-12">
-                            <?php if($article->user_id == $_SESSION['user_id']) { ?>
+                            <?php if(userType($_SESSION['user_id']) == 'Admin') { ?>
+                            <h4>Admin article controls </h4>
+                                    <form method="post" action="article.php?article=<?php echo $id ?>">
+                                        <a href="edit.php?article=<?php echo $id ?>" class="btn btn-info">Edit article</a>
+                                        <button name="do_make_featured" type="submit" class="btn btn-success pull-right" value="<?php echo $id; ?>">Make Featured!</button>
+                                    </form>
+                                    <hr>
+                                    <div class="clearfix"></div>
+                            <?php } else if($article->user_id == $_SESSION['user_id']) { ?>
                             <h4>Your article controls <small>(only you can see this!)</small></h4>
 <!--                            <a href="#" class="btn btn-warning">Don't allow comments</a>-->
-                                <?php if(userType($_SESSION['user_id']) == 'Admin') { ?>
                                     <form method="post" action="article.php?article=<?php echo $id ?>">
                                         <a href="edit.php?article=<?php echo $id ?>" class="btn btn-success">Edit article</a>
-                                        <button name="do_remove_article" type="submit" class="btn btn-danger pull-right" value="<?php echo $id; ?>">Remove Article</button>
                                     </form>
-                            <?php } ?>
+
                             <div class="clearfix"></div>
                             <hr>
                             <?php } ?>

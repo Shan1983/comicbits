@@ -23,7 +23,7 @@
 					
 					$.ajax({
 						type: 'POST',
-						url: 'CommentAjax.php',
+						url: './helpers/CommentAjax.php',
 						data: JSON.stringify(params),
 						contentType: 'application/json; charset=utf-8',
 						dataType: 'json',
