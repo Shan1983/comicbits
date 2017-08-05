@@ -5,7 +5,7 @@
 // get total comments for articles
 function commentCount($article_id) {
     $db = new Database();
-    $db->query("SELECT * FROM comments WHERE article_id = :article_id");
+    $db->query("SELECT * FROM comment WHERE article_id = :article_id");
     $db->bind(':article_id', $article_id);
     $res = $db->resultSet();
     return count($res);

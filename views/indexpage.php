@@ -41,7 +41,8 @@
                                             <p class="article-info-body"><?php echo articleSample($article->body) ?></p>
                                             <br>
                                             <span class="pull-left label label-info"><?php if (commentCount($article->id)) {
-                                                    echo commentCount($article->id) . ' Comments';
+                                                    echo commentCount($article->id) . ' Comments'; 
+                                                   
                                                 } else {
                                                     echo '';
                                                 } ?></span>
