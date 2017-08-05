@@ -46,27 +46,27 @@ if(isset($_POST['lets_comment'])){
 
 }
 
-if (isset($_POST['do_remove'])) {
-    if(removeComment($_POST['do_remove'])) {
-        redirect("article.php?article=".$_POST['do_remove'], "The comment has been removed", 'alert');
+// if (isset($_POST['do_remove'])) {
+//     if(removeComment($_POST['do_remove'])) {
+//         redirect("article.php?article=".$_POST['do_remove'], "The comment has been removed", 'alert');
 
-    }else{
-        redirect("article.php?article=".$_POST['do_remove'], "Something bad happened.. remove it again!", 'error');
+//     }else{
+//         redirect("article.php?article=".$_POST['do_remove'], "Something bad happened.. remove it again!", 'error');
 
-    }
+//     }
 
-}
+// }
 
-if (isset($_POST['do_remove_article'])) {
-    if(removeArticle($_POST['do_remove_article'])) {
-        redirect('index.php', "The article has been removed", 'alert');
+// if (isset($_POST['do_remove_article'])) {
+//     if(removeArticle($_POST['do_remove_article'])) {
+//         redirect('index.php', "The article has been removed", 'alert');
 
-    }else{
-        redirect("article.php?article=".$_POST['do_remove_article'], "Something bad happened.. remove it again!", 'error');
+//     }else{
+//         redirect("article.php?article=".$_POST['do_remove_article'], "Something bad happened.. remove it again!", 'error');
 
-    }
+//     }
 
-}
+// }
 
 
 

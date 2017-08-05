@@ -19,14 +19,15 @@
                         <?php
                         // check if they're any articles..
                         if (isset($tags)) {
-                            foreach($tags as $tag) :
+                            foreach($tags as $key => $tag) :
+                                
                                 ?>
                                 <li class="article">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <?php foreach($link as $l) { ?>
-                                            <h3><a href="article.php?article=<?php echo $l->id; ?>"><?php echo $tag->title ?></a></h3>
-                                            <?php } ?>
+                                            
+                                            <h3><a href="article.php?article=<?php echo $link[$key]->id; ?>"><?php echo $tag->title ?></a></h3>
+                                            
                                             <div class="article-info">
                                                 <a href="articles.php?tag=<?php echo urlFormat($tag->tag_id); ?>"
                                                    class="label label-primary"><?php echo $tag->name ?></a>
