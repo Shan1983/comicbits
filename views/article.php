@@ -32,7 +32,11 @@
                             <h4>Admin article controls </h4>
                                     <form method="post" action="article.php?article=<?php echo $id ?>">
                                         <a href="edit.php?article=<?php echo $id ?>" class="btn btn-info">Edit article</a>
+                                        <?php if($article->isFeatured == 0) { ?>
                                         <button name="do_make_featured" type="submit" class="btn btn-success pull-right" value="<?php echo $id; ?>">Make Featured!</button>
+                                        <?php }else { ?>
+                                        <button name="do_remove_featured" type="submit" class="btn btn-warning pull-right" value="<?php echo $id; ?>">Remove Featured!</button>
+                                        <?php } ?>
                                     </form>
                                     <hr>
                                     <div class="clearfix"></div>

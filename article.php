@@ -46,6 +46,18 @@ if(isset($_POST['lets_comment'])){
 
 }
 
+if ($_POST['do_make_featured']) {
+    $article_id = $_GET['article'];
+    $articles->makeArticleFeatured($article_id);
+    redirect('index.php', 'Awesome! The article is now featured!', 'success');
+}
+
+if ($_POST['do_remove_featured']) {
+    $article_id = $_GET['article'];
+    $articles->removeArticleFeatured($article_id);
+    redirect('index.php', 'Awesome! The article is no longer featured!', 'success');
+}
+
 // if (isset($_POST['do_remove'])) {
 //     if(removeComment($_POST['do_remove'])) {
 //         redirect("article.php?article=".$_POST['do_remove'], "The comment has been removed", 'alert');

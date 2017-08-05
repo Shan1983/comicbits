@@ -179,5 +179,27 @@ class Article {
             return false;
         }
     }
+    
+    // make an article featured
+    public function makeArticleFeatured($id) {
+        $this->db->query("UPDATE articles SET isFeatured = '1' WHERE id = :id");
+        $this->db->bind(':id', $id);
+        if ($this->db->execute()){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    
+    // remove an featured article 
+    public function removeArticleFeatured($id) {
+        $this->db->query("UPDATE articles SET isFeatured = '0' WHERE id = :id");
+        $this->db->bind(':id', $id);
+        if ($this->db->execute()){
+            return true;
+        }else {
+            return false;
+        }
+    }
 
 }

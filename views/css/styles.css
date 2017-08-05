@@ -54,6 +54,10 @@ h3 {
     word-wrap: break-word;
 }
 
+.article-info-featured {
+	border: 1px solid red;
+}
+
 .article-info-body:first-letter{
     text-transform: capitalize;
     font-size: 24px;

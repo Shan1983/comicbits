@@ -25,6 +25,33 @@
                             <li class="article">
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <?php if($article->isFeatured == 1) { // FEATURED ARTCLE CSS NEEDS TO BE CHANGED HERE ?>
+                                        <div class="article-info-featured">
+                                        <h3>
+                                            <a href="article.php?article=<?php echo $article->id; ?>"><?php echo $article->title ?> (FEATURED remove this once css is added)</a>
+                                        </h3>
+                                        <div class="article-info">
+                                            <a href="articles.php?tag=<?php echo urlFormat($article->tag_id); ?>"
+                                               class="label label-primary"><?php echo $article->name ?></a>
+                                            | Published: <?php echo formatDate($article->created_at); ?>
+                                            | By: <a
+                                                    href="articles.php?user=<?php echo urlFormat($article->user_id); ?>"><?php echo $article->username ?></a>
+                                            | <?php echo calcReadTime($article->body); ?>
+                                            <hr>
+                                            <p class="article-info-body"><?php echo articleSample($article->body) ?></p>
+                                            <br>
+                                            <span class="pull-left label label-info"><?php if (commentCount($article->id)) {
+                                                    echo commentCount($article->id) . ' Comments';
+                                                } else {
+                                                    echo '';
+                                                } ?></span>
+                                            <a href="article.php?article=<?php echo urlFormat($article->id); ?>"
+                                               class="pull-right">Contiue reading..</a>
+                                            <div class="clearfix"></div>
+                                            <hr>
+                                        </div>
+                                        </div>
+                                        <?php }else {  // NOT FEATURED NOTHING NEEDS TO BE CHANGED BELOW ?>
                                         <h3>
                                             <a href="article.php?article=<?php echo $article->id; ?>"><?php echo $article->title ?></a>
                                         </h3>
@@ -48,6 +75,7 @@
                                             <div class="clearfix"></div>
                                             <hr>
                                         </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </li>
