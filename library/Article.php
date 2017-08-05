@@ -104,10 +104,8 @@ class Article {
 
     // gets the article for the show article page
     public function getArticle($articleId) {
-        $this->db->query('SELECT articles.*, users.*, tags.*
+        $this->db->query('SELECT articles.*, tags.*
                                 FROM articles
-                                INNER JOIN users
-                                ON articles.user_id = users.id
                                 INNER JOIN tags
                                 ON articles.tag_id = tags.id
                                 WHERE articles.id = :id');

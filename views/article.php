@@ -11,8 +11,8 @@
     <p>
         <a href="articles.php?tag=<?php echo urlFormat($article->tag_id); ?>"
            class="label label-primary"><?php echo $article->name ?></a>
-        | Published: <?php echo formatDate($article->created_at); ?>
-        | By: <a href="articles.php?user=<?php echo urlFormat($article->user_id); ?>"><?php echo $article->username ?></a>
+        | Published: <?php echo formatDate($published); ?>
+        | By: <a href="articles.php?user=<?php echo urlFormat($article->user_id); ?>"><?php echo $published_user ?></a>
         | <?php echo calcReadTime($article->body); ?>
     </p>
 </div>

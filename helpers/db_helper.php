@@ -45,6 +45,18 @@ function userType($str) {
 
 }
 
+function getUserById($id) {
+    $db = new Database();
+ 
+    $db->query("SELECT username FROM users WHERE id = :id");
+    $db->bind(':id', $id);
+    
+    $res = $db->single();
+    
+    
+    return $res->username;
+}
+
 // used for the search function to find all
 // article titles like % the search query.
 // its in here cause I got lazy..

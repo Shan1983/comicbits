@@ -18,7 +18,8 @@ $template->article = $articles->getArticle($articleId);
 $template->comments = $articles->getComments($articleId);
 $template->title = $articles->getArticle($articleId)->title;
 $template->id = isset($_GET['article']) ? $_GET['article'] : null;
-
+$template->published = $articles->getArticle($articleId)->created_at;
+$template->published_user = getUserById($articles->getArticle($articleId)->user_id);
 
 // send the queried results to the indexpage view
 $template->articles = $articles->getAllArticles();
