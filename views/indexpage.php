@@ -4,7 +4,10 @@
 <div class="jumbotron text-center">
     <h1 >Welcome to the blog</h1>
     <p >Howdy there! You look like someone who could write a thing or two about your fav comics!</p>
+    <?php if (!isset($_SESSION['is_logged_in'])) { ?>
     <a href="register.php" id="hero-btn" class="btn btn-success">Come join us!</a>
+    <?php } ?>
+   
 </div>
 <div class="container">
     <div class="row">
