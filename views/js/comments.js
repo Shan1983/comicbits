@@ -1,5 +1,14 @@
 	$( document ).ready(function() {
-			
+		
+			if ($("#UserLoggedIn").val() == "true") {
+				$(".comment-add-button").show();
+				$(".comment-login").hide();
+			}
+			else {
+				$(".comment-add-button").hide();
+				$(".comment-login").show();
+			}
+
 			loadComments();
 			
 			$(".comment-add").click(function() {
@@ -114,7 +123,7 @@
 			h += '<div style="clear: both;"></div>';
 			h += '</div>';
 			h += '<div class="comment-text">' + htmlEncode(comment["commentData"]) + '</div>';
-			if (comment["level"] < 8) {
+			if ($("#UserLoggedIn").val() == "true" && comment["level"] < 8) {
 				h += '<div class="comment-reply" data-guid="' + comment["commentGuid"] + '"><i class="fa fa-reply" aria-hidden="true"></i> Reply</div>';
 			}
 			h += '</div>';

@@ -174,6 +174,10 @@ class User {
         
         return $result;
     }
+    
+    public static function IsLoggedIn() {
+        return ($_SESSION['user_id'] == null) ? false : true;
+    }
 
 
 }
