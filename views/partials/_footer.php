@@ -8,23 +8,26 @@
             <?php
             if(isset($_SESSION['is_logged_in']) == false) {
             ?>
-            <h4>You need to have an account to see this!</h4>
-            <a href="register.php" class="btn-block btn btn-primary">Register</a>
-            <a href="login.php" class="btn-block btn btn-default">Login</a>
+            <h1 class="icon"><i class="fa fa-lock " aria-hidden="true"></i><br><small>Account Required</small></h1>
+            <a href="register.php" id="loginBtn" class="btn-block btn btn-primary">Register</a>
+            <a href="login.php" id="RegisterBtn" class="btn-block btn btn-success">Login</a>
             <?php }else { ?>
                 <img class="pull-right" src="images/avatars/<?php echo $_SESSION['avatar']; ?>" alt="users avatar" height="50" width="50">
                 <h4>Howdy, <strong><a href="profile.php?user=<?php echo $_SESSION['user_id'];?>"><?php echo $_SESSION['username']; ?></a></strong><hr> </h4>
                 <div class="clearfix"></div>
                 <small>Member since: <?php echo formatDate($_SESSION['created_at']); ?></small><br><br>
                 <form action="logout.php" method="post">
-                    <a href="create.php" class="btn btn-primary">Write a new article!</a>
-                    <input name='logout' type='submit' class="btn btn-default pull-right" value="Logout">
+                    <a href="create.php" id="loginBtn" class="btn btn-primary">Write a new article!</a>
+                    <input name='logout'  type='submit' class="btn btn-default form-control" value="Logout">
                 </form>
                 <div class="clearfix"></div>
             <?php } ?>
         </div>
-        <div class="block">
-            <h3 class="text-center">Tags</h3>
+        <div class="tag-block">
+            <!--<h3 class="text-center">Tags</h3>-->
+            <div class="tag-header">
+                    <h2 class="pull-left text-center">Tags</h2>
+            </div>
             <div class="list-group">
                 <a href="index.php" class="list-group-item <?php echo is_active(null); ?>">All Articles</a>
                 <?php

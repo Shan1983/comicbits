@@ -2,10 +2,6 @@ body {
     padding-top: 50px;
     background: #fafafa;
     font-size: 15px;
-    /*
-    Just testing...
-    */
-    background: navy; /* was wondering if i broke something ;P - Shan */
     
 }
 
@@ -77,6 +73,13 @@ a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.acti
 a.list-group-item:hover, a.list-group-item:focus {
     background: rgba(233,212,96, 0.5);
 
+}
+
+/* Featured Article
+>>> Just testing to see where everything is now
+*/
+.articles{
+	
 }
 
 /* Comments */

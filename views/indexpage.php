@@ -4,7 +4,7 @@
 <div class="jumbotron text-center">
     <h1 >Welcome to the blog</h1>
     <p >Howdy there! You look like someone who could write a thing or two about your fav comics!</p>
-    <a href="register.php" class="btn btn-success">Come join us!</a>
+    <a href="register.php" id="hero-btn" class="btn btn-success">Come join us!</a>
 </div>
 <div class="container">
     <div class="row">
@@ -13,9 +13,11 @@
             <div class="main-col">
                 <!-- TODO setup block for main curved background -->
                 <div class="block">
-                    <h1 class="pull-left">All Articles</h1>
+                    <div class="article-header">
+                    <h1 class="pull-left text-center">All Articles</h1>
+                    </div>
+                    <!--<hr class="article-heading-hr">-->
                     <div class="clearfix"></div>
-                    <hr>
                     <ul id="articles">
                         <?php
                         // check if they're any articles..
@@ -40,7 +42,7 @@
                                             <hr>
                                             <p class="article-info-body"><?php echo articleSample($article->body) ?></p>
                                             <br>
-                                            <span class="pull-left label label-info"><?php if (commentCount($article->id)) {
+                                            <span class="pull-left text-center"><?php if (commentCount($article->id)) {
                                                     echo commentCount($article->id) . ' Comments'; 
                                                    
                                                 } else {
@@ -66,7 +68,7 @@
                                             <hr>
                                             <p class="article-info-body"><?php echo articleSample($article->body) ?></p>
                                             <br>
-                                            <span class="pull-left label label-info"><?php if (commentCount($article->id)) {
+                                            <span id="comments-article" class="pull-left text-center"><?php if (commentCount($article->id)) {
                                                     echo commentCount($article->id) . ' Comments';
                                                 } else {
                                                     echo '';
@@ -74,7 +76,7 @@
                                             <a href="article.php?article=<?php echo urlFormat($article->id); ?>"
                                                class="pull-right">Contiue reading..</a>
                                             <div class="clearfix"></div>
-                                            <hr>
+                                            <hr class="article-devider">
                                         </div>
                                         <?php } ?>
                                     </div>

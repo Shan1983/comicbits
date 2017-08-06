@@ -3,7 +3,7 @@
 <div class="jumbotron text-center">
     <h1 >Welcome to the blog</h1>
     <p >Howdy there! You look like someone who could write a thing or two about your fav comics!</p>
-    <a href="register.html" class="btn btn-success">Come join us!</a>
+    <a href="register.html" id="hero-btn" class="btn btn-success">Come join us!</a>
 </div>
 <div class="container">
     <div class="row">
