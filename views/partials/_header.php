@@ -14,11 +14,11 @@
     <link href="views/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="views/css/styles.css" rel="stylesheet">
+    <link href="views/css/new.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	
+<link href="https://fonts.googleapis.com/css?family=Asul|Contrail+One|Kavoon|Lobster" rel="stylesheet">
 
-	
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     
 	<script type="text/javascript" src="views/js/comments.js"></script>
