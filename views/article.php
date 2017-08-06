@@ -59,11 +59,16 @@
                    <div class="clearfix"></div>
                     <hr>
                     <div class="clearfix"></div>
+                    <input type="hidden" id="UserLoggedIn" value="<?php echo User::IsLoggedIn() ? "true" : "false"; ?>" />
                     <input type="hidden" id="ArticleGuid" value="<?php echo $id; ?>" />
 	<input type="hidden" id="CommentGuid" value="" />
-	
-	<button type="button" class="btn btn-primary comment-add">Add Comment</button>
-	
+	<h2>Comments</h2>
+	<div class="comment-add-button">
+	    <button type="button" class="btn btn-primary comment-add">Add Comment</button>
+	</div>
+	<div class="comment-login">
+	    <p><a href="/login.php">Login</a> to comment.</p>
+	</div>
 	<div class="comment-wrapper">
 		<div class="comment-loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>
 		<ul class="comment-list"></ul>

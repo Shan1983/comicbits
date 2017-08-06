@@ -1,6 +1,7 @@
 <?php
 
 	//namespace Business;
+
 	
 	class Comment {
 		
@@ -33,8 +34,7 @@
         
 			if ($commentId != 0) {
 				
-				// $pdo = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USERNAME, DB_PASSWORD);
-				 $pdo = new PDO("mysql:host=localhost;dbname=comic-bits-test", "shannan", "");
+				$pdo = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
 				$stmt = $pdo->prepare("call comment_get('ByComment', ?, null, null)");
 				$stmt->bindParam(1, $commentId);
 				$stmt->execute();
@@ -84,8 +84,7 @@
 				$this->approved = 1;
 			}
 			
-			//$pdo = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USERNAME, DB_PASSWORD);
-			$pdo = new PDO("mysql:host=localhost;dbname=comic-bits-test", "shannan", "");
+			$pdo = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
 			$stmt = $pdo->prepare('call comment_save(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
 			$stmt->bindParam(1, $this->commentId);
 			$stmt->bindParam(2, $this->articleId);
@@ -113,8 +112,7 @@
 			
 			$comment = null;
 			
-			//$pdo = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USERNAME, DB_PASSWORD);
-			 $pdo = new PDO("mysql:host=localhost;dbname=comic-bits-test", "shannan", "");
+			$pdo = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
 			$stmt = $pdo->prepare("call comment_get('ByCommentGuid', null, ?, null)");
 			$stmt->bindParam(1, $commentGuid);
 			$stmt->execute();
@@ -138,8 +136,7 @@
 			
 			$comments = Array();
 
-			//$pdo = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USERNAME, DB_PASSWORD);
-			$pdo = new PDO("mysql:host=localhost;dbname=comic-bits-test", "shannan", "");
+			$pdo = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
 			$stmt = $pdo->prepare("call comment_get('ByArticle', null, null, ?)");
 			$stmt->bindParam(1, $articleId);
 			$stmt->execute();

@@ -21,7 +21,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     
+    <?php if (basename($_SERVER['PHP_SELF']) == "article.php") { ?>
+    
 	<script type="text/javascript" src="views/js/comments.js"></script>
+	
+	<?php } ?>
 
 </head>
 
