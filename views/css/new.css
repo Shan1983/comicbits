@@ -123,22 +123,27 @@ h3 {
 .jumbotron {
 background-image: radial-gradient(circle at center bottom, #5C97BF, #26A65B);
 	color: #fff;
-	transform: skew(0, -1deg);
+	transform: skew(0, -5deg);
 	box-shadow: 0px 0px 10px 10px rgba(1, 1, 1, 0.4);
-	margin-top: -20px;
+	margin-top: -120px;
+	height: 520px;
 }
 
 .jumbotron h1 {
+    padding-top: 110px;
 	color: #fff;
 	font-family: 'Lobster', cursive;
 	text-shadow: 1px 1px #303030;
-	transform: skew(0, 1deg);
+	transform: skew(0, 5deg);
+	font-size: 6.4em;
 }
 
 .jumbotron p {
 	color: #fff;
 	font-family: 'Contrail One', cursive;
-	transform: skew(0, 1deg);
+	transform: skew(0, 5deg);
+	margin-bottom: 30px;
+	font-size: 2.0em;
 }
 
 #hero-btn {
@@ -151,6 +156,7 @@ background-image: radial-gradient(circle at center bottom, #5C97BF, #26A65B);
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     font-family: 'Rubik', sans-serif;
     text-shadow: 2px 2px #000;
+    transform: skew(0, 4deg);
 }
  
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -160,7 +166,7 @@ background-image: radial-gradient(circle at center bottom, #5C97BF, #26A65B);
 .block {
     background: #fff;
     border-radius: 5px;
-    margin: 15px 15px 50px 15px;
+    margin: 50px 15px 50px 15px;
     padding: 30px;
     -moz-box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     -webkit-box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -203,7 +209,7 @@ background-image: radial-gradient(circle at center bottom, #5C97BF, #26A65B);
     color: #fff;
     transform: skew(0, -3deg);
     position: absolute;
-    top: -1px;
+    top: 30px;
     box-shadow: 5px 5px 0px #F9690E;
     border-top: 1px solid rgba(0, 177, 106, 0.25);
 }
@@ -211,6 +217,8 @@ background-image: radial-gradient(circle at center bottom, #5C97BF, #26A65B);
 .article-header h1 {
 	font-size: 2.0em;
 }
+
+
 
 .tag-header {
 	width: 150px;
