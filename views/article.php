@@ -63,6 +63,7 @@
                     <hr>
                     <div class="clearfix"></div>
                     <input type="hidden" id="UserLoggedIn" value="<?php echo User::IsLoggedIn() ? "true" : "false"; ?>" />
+                    <input type="hidden" id="UserAdmin" value="<?php echo User::IsAdmin() ? "true" : "false"; ?>" />
                     <input type="hidden" id="ArticleGuid" value="<?php echo $id; ?>" />
 	<input type="hidden" id="CommentGuid" value="" />
 	<h2>Comments</h2>

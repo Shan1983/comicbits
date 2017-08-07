@@ -59,6 +59,19 @@
 				$(".comment-data").val('');
 				$("#CommentModal").modal('show');
 			});
+			
+			$('body').on('click', '.comment-disable', function () {
+				var commentGuid = $(this).attr("data-guid");
+				 moderateComment(commentGuid, 0);
+			
+			});
+			
+			$('body').on('click', '.comment-enable', function () {
+				var commentGuid = $(this).attr("data-guid");
+				 moderateComment(commentGuid, 1);
+			
+			});
+
 
 		});
 		function loadComments() {
@@ -105,6 +118,34 @@
 			});
 		}
 		
+		function moderateComment(commentGuid, approved) {
+			$(".comment-loading").show();
+			
+			var params = {}
+			params['Mode'] = "moderate-comment";
+			params['ArticleGuid'] = $("#ArticleGuid").val();
+			params['CommentGuid'] = commentGuid;
+			params['Approved'] = approved;
+			
+			$.ajax({
+				type: 'POST',
+				url: './helpers/CommentAjax.php', 
+				data: JSON.stringify(params),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				success: function (response) {
+					$(".comment-loading").hide();
+					processComments(response);
+					$('.comment-focus').delay(3000).queue(function(){
+						$(this).removeClass("comment-focus");
+					});
+				},
+				error: function (xhr, status, error) {
+					alert(error);
+				}
+			});
+		}
+		
 		function getCommentRow(comment) {
 			var colWidth = 12 - comment["level"];
 			var colOffset = comment["level"];
@@ -123,9 +164,23 @@
 			h += '<div class="comment-time"><i class="fa fa-clock-o" aria-hidden="true"></i> ' + comment["postDateText"] + '</div>';
 			h += '<div style="clear: both;"></div>';
 			h += '</div>';
-			h += '<div class="comment-text">' + htmlEncode(comment["commentData"]) + '</div>';
+			h += '<div class="comment-text';
+			
+			if (!comment["approved"]) {
+				h += ' comment-text-disabled';
+			}
+			
+			h += '">' + htmlEncode(comment["commentData"]) + '</div>';
 			if ($("#UserLoggedIn").val() == "true" && comment["level"] < 8) {
 				h += '<div class="comment-reply" data-guid="' + comment["commentGuid"] + '"><i class="fa fa-reply" aria-hidden="true"></i> Reply</div>';
+			}
+			if ($("#UserLoggedIn").val() == "true" && $("#UserAdmin").val() == "true") {
+				if (comment["approved"]) {
+					h += '<div class="comment-disable" data-guid="' + comment["commentGuid"] + '"><i class="fa fa-times" aria-hidden="true"></i> Disable</div>';
+				}
+				else {
+					h += '<div class="comment-enable" data-guid="' + comment["commentGuid"] + '"><i class="fa fa-check" aria-hidden="true"></i> Enable</div>';
+				}
 			}
 			h += '</div>';
 			h += '</div>';
@@ -137,4 +192,5 @@
 		function htmlEncode(value){
 			return $('<div/>').text(value).html();
 		}
+		
 		

@@ -61,7 +61,7 @@
 			$object->level = $row['level'];
 			$object->commentData = $row['comment_data'];
 			$object->commentGuid = $row['comment_guid'];
-			$object->approved = $row['approved'];
+			$object->approved = ($row['approved'] == 1) ? true : false;
 			$object->approvedBy = $row['approved_by'];
 			$object->approvedDate = $row['approved_date'];
 			$object->approvedIpAddress = $row['approved_ip_address'];

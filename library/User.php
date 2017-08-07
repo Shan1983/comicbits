@@ -178,6 +178,10 @@ class User {
     public static function IsLoggedIn() {
         return ($_SESSION['user_id'] == null) ? false : true;
     }
+    
+    public static function IsAdmin() {
+        return ($_SESSION['user_id'] != null && $_SESSION['membership'] == "1") ? true : false;
+    }
 
 
 }
