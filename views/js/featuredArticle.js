@@ -1,7 +1,9 @@
+// Not using this in particular, just want to make sure I have the correct node
 
-$(".article-info-featured > h3").css("fontSize", "60px");
+$(document).ready(function() {
+    
+$(".article-info-featured").css("background-color", "red");
 
-
-
+});
 
 

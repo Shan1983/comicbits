@@ -130,13 +130,15 @@ class Article {
     }
 
     public function create($data) {
-        $this->db->query('INSERT INTO articles (tag_id, user_id, title, body, status)
-                                VALUES (:tag_id, :user_id, :title, :body, :status)');
+        $this->db->query('INSERT INTO articles (tag_id, user_id, article_image, title, body, status)
+                                VALUES (:tag_id, :user_id, :article_image, :title, :body, :status)');
         $this->db->bind(':tag_id', $data['tag']);
         $this->db->bind(':user_id', $data['user_id']);
+        $this->db->bind(':article_image', $data['image']);
         $this->db->bind(':title', $data['title']);
         $this->db->bind(':body', $data['body']);
         $this->db->bind(':status', 0);
+        
 
         if($this->db->execute()) {
             return true;
@@ -199,5 +201,65 @@ class Article {
             return false;
         }
     }
+    
+    
+    // this uploads an image for articles
+            public function uploadArticleImage()
+        {
+
+            if (!empty($_FILES['article-image']['name'])) {
+
+
+                // array containg the extensions of popular image files
+                $allowedExtensions = array("gif", "jpeg", "jpg", "png");
+
+                //echo $_FILES['article-image']['name'];
+
+
+                // make it so i can get the .extension
+                $tmp = explode(".", $_FILES['article-image']['name']);
+
+
+                // get the end part of the file
+                $newfilename = hash('sha256', reset($tmp) . time());
+
+                $extension = end($tmp);
+
+                $_FILES['article-image']['name'] = $newfilename . "." . $extension;
+                //echo $_FILES['avatar']['name'];
+                
+    
+             
+                // ok here we go.. maybe a switch might be nice?.. meh..
+                if ((($_FILES['article-image']['type'] == "image/gif")
+                        || ($_FILES['article-image']['type'] == "image/jpeg")
+                        || ($_FILES['article-image']['type'] == "image/jpg")
+                        || ($_FILES['article-image']['type'] == "image/png"))
+                    && ($_FILES['article-image']['size'] < 2000000)
+                    && in_array($extension, $allowedExtensions)
+                ) {
+
+                    // get the error
+                    if ($_FILES['article-image']['error'] > 0) {
+                        redirect('create.php', $_FILES['article-image']['error'], 'error');
+                    } else {
+                         
+                        // and finally move the file into the folder
+                        move_uploaded_file($_FILES['article-image']['tmp_name'], "images/article_images/" . $_FILES['article-image']['name']);
+                        //redirect('index.php', 'Amazing! your all signed up', 'success');
+                        $_SESSION['article-image'] = $_FILES['article-image']['name'];
+                        return true;
+                    }
+
+                } else {
+                    // stop and warn the user that the file type is not suppoerted
+                    redirect('create.php', 'Invalid File Type! We only accept "gif", "jpeg", "jpg", or "png"', 'error');
+                }
+            } else {
+                //move_uploaded_file($_FILES['avatar']['tmp_name'], SERVER_URI . "images/avatars/" . $_FILES['avatar']['name']);
+                return false;
+            }
+
+        }
 
 }

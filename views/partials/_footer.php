@@ -32,7 +32,7 @@
                 <a href="index.php" class="list-group-item <?php echo is_active(null); ?>">All Articles</a>
                 <?php
                 foreach(getTags() as $tag) : ?>
-                <a href="articles.php?tag=<?php echo $tag->id; ?>" class="list-group-item <?php echo is_active($tag->id); ?>"><?php echo $tag->name; ?></a>
+                <a href="tags.php?tag=<?php echo $tag->id; ?>" class="list-group-item <?php echo is_active($tag->id); ?>"><?php echo $tag->name; ?></a>
                <?php endforeach; ?>
             </div>
         </div>

@@ -1,5 +1,5 @@
+
 	$( document ).ready(function() {
-		
 		
 			if ($("#UserLoggedIn").val() == "true") {
 				$(".comment-add-button").show();
@@ -137,3 +137,4 @@
 		function htmlEncode(value){
 			return $('<div/>').text(value).html();
 		}
+		

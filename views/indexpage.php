@@ -71,11 +71,14 @@
                                             <hr>
                                             <p class="article-info-body"><?php echo articleSample($article->body) ?></p>
                                             <br>
-                                            <span id="comments-article" class="pull-left text-center"><?php if (commentCount($article->id)) {
-                                                    echo commentCount($article->id) . ' Comments';
+                                            <?php if (commentCount($article->id)) { ?>
+                                            <span id="comments-article" class="pull-left text-center">
+                                                    <?php echo commentCount($article->id) . ' Comments';
                                                 } else {
-                                                    echo '';
-                                                } ?></span>
+                                                    echo ''; ?>
+                                                    
+                                                <?php } ?>
+                                                </span>
                                             <a href="article.php?article=<?php echo urlFormat($article->id); ?>"
                                                class="pull-right">Contiue reading..</a>
                                             <div class="clearfix"></div>

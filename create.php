@@ -17,6 +17,12 @@ if(isset($_POST['lets_create'])) {
     $data['title'] = $_POST['title'];
     $data['body'] = $_POST['body'];
     $data['tag'] = $_POST['tag'];
+    
+    if ($articles->uploadArticleImage()){
+        $data['image'] = $_FILES['article-image']['name']; 
+    }else {
+        $data['image'] = 'default.png';
+    }
     $data['user_id'] = $_SESSION['user_id'];
 
     $required_fields = ['title', 'body', 'tag'];
