@@ -51,6 +51,9 @@
                             <hr>
                             <?php } ?>
                             <div class="article-info">
+                                <div class="thumbnail">
+                                    <img src="images/article_images/<?php echo $article->article_image; ?>" alt="image for <?php echo $article->name ?>" width="650" height="345"></img>
+                                </div>
                                 <p class="article-info-body"><?php echo $article->body; ?></p>
                                 <div class="clearfix"></div>
                             </div>
