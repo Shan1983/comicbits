@@ -169,7 +169,6 @@
 			if (!comment["approved"]) {
 				h += ' comment-text-disabled';
 			}
-			
 			h += '">' + htmlEncode(comment["commentData"]) + '</div>';
 			if ($("#UserLoggedIn").val() == "true" && comment["level"] < 8) {
 				h += '<div class="comment-reply" data-guid="' + comment["commentGuid"] + '"><i class="fa fa-reply" aria-hidden="true"></i> Reply</div>';

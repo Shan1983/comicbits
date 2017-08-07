@@ -109,8 +109,8 @@ require('../core/init.php');
 			$commentModel->level = $comment->level;
 			$commentModel->username = $comment->username;
 			$commentModel->postDateText = GetPostDateText($comment->createdDate);
-			$commentModel->approved = $comment->approved;
 			$commentModel->hasFocus = ($comment->commentId == $focusCommentId) ? true : false;
+			$commentModel->approved = $comment->approved;
 			$commentModels[] = $commentModel;
 		}
 		return json_encode($commentModels);

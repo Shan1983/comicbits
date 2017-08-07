@@ -350,6 +350,9 @@ padding: 10px;
 			color: #333333;
 			font-size: 9pt;
 		}
+		.comment-text-disabled {
+		    color: #ff0000;
+		}
 		.comment-reply {
 			margin-top: 2px;
 			font-weight: normal;
@@ -381,7 +384,4 @@ padding: 10px;
 		}
 		.no-comment {
 			padding-top: 10px;
-		}
-		.comment-text-disabled {
-		    color: #ff0000;
 		}
