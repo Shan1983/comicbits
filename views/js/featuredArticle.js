@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
     
-$(".article-info-featured").css("background-color", "red");
+$(".article-info-featured").css("background-color", "blue");
 
 });
 
