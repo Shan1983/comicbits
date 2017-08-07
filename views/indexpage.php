@@ -36,7 +36,7 @@
                                             <a href="article.php?article=<?php echo $article->id; ?>"><?php echo $article->title ?> (FEATURED remove this once css is added)</a>
                                         </h3>
                                         <div class="article-info">
-                                            <a href="articles.php?tag=<?php echo urlFormat($article->tag_id); ?>"
+                                            <a href="tags.php?tag=<?php echo urlFormat($article->tag_id); ?>"
                                                class="label label-primary"><?php echo $article->name ?></a>
                                             | Published: <?php echo formatDate($article->created_at); ?>
                                             | By: <a
@@ -62,7 +62,7 @@
                                             <a href="article.php?article=<?php echo $article->id; ?>"><?php echo $article->title ?></a>
                                         </h3>
                                         <div class="article-info">
-                                            <a href="articles.php?tag=<?php echo urlFormat($article->tag_id); ?>"
+                                            <a href="tags.php?tag=<?php echo urlFormat($article->tag_id); ?>"
                                                class="label label-primary"><?php echo $article->name ?></a>
                                             | Published: <?php echo formatDate($article->created_at); ?>
                                             | By: <a

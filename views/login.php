@@ -11,7 +11,10 @@
             <div class="main-col">
                 <!-- TODO setup block for main curved background -->
                 <div class="block">
-                    <form role="form" method="post" action="login.php">
+                    <div class="article-header">
+                        <h3>Login</h3>
+                    </div>
+                    <form id="create" role="form" method="post" action="login.php">
                         <div class="form-group">
                             <label>Email:</label>
                             <input name="email" type="email" class="form-control" placeholder="Enter Email">
@@ -20,10 +23,8 @@
                             <label>Password</label>
                             <input name="password" type="password" class="form-control" placeholder="Enter Password">
                         </div>
-                        <button name="lets_login" type="submit" class="btn btn-primary">Login</button>
+                        <button name="lets_login" type="submit" id="mainBtn" class="btn btn-primary pull-right">Login</button>
+                    <div class="clearfix"></div>
                     </form>
-                    <hr>
-                    <p>If your like us sometimes you forgot stuff. If you have forgotten your Login details..</p>
-                    <a href="iforgot.php">Click here!</a>
                 </div>
             </div>

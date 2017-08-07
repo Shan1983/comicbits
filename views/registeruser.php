@@ -11,10 +11,13 @@
             <div class="main-col">
                 <!-- TODO setup block for main curved background -->
                 <div class="block">
-                    <h4 class="pull-left">Registering let's you do all kinds of awesome things, like authoring your own articles, liking and sharing, and leaving comments.</h4>
+                    <div class="article-header">
+                        <h3>Register</h3>
+                    </div>
+                    <h4 id="create" class="pull-left">Registering let's you do all kinds of awesome things, like authoring your own articles, liking and sharing, and leaving comments.</h4>
                     <div class="clearfix"></div>
                     <hr>
-                    <form id="registration" role="form" enctype="multipart/form-data" method="post" action="register.php">
+                    <form role="form" enctype="multipart/form-data" method="post" action="register.php">
                         <div class="form-group">
                             <label>Name:</label>
                             <input type="text" class="form-control" name="name" placeholder="Enter your Name">
@@ -41,10 +44,10 @@
                             <p class="help-block"></p>
                         </div>
 
-                        <button name="register" type="submit" class="btn btn-success pull-right" value="Register" >Register</button>
+                        <button name="register" id="mainBtn" type="submit" class="btn btn-success pull-right" value="Register" >Register</button>
                         <div class="clearfix"></div>
-
+                        <div class="clearfix"></div>
                     </form>
-                    <hr>
+                  
                 </div>
             </div>

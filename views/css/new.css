@@ -4,11 +4,14 @@ font-family: 'Asul', sans-serif;
 font-family: 'Lobster', cursive;
 */
 
+/* hi */
+
 body {
     padding-top: 50px;
     background: #1E824C;
     font-size: 15px;
 	font-family: 'Asul', sans-serif;
+	list-style: none;
 }
 
 a {
@@ -53,7 +56,7 @@ h3 {
 
 /* Log in / register btns */
 #loginBtn {
-    padding: 14px 18px;
+    padding: 12px 16px;
     border: 0 none;
     font-weight: 700;
     font-size: 1.5em;
@@ -63,6 +66,20 @@ h3 {
     font-family: 'Rubik', sans-serif;
     text-shadow: 2px 2px #000;
 	margin-bottom: 10px;
+}
+
+#mainBtn {
+    padding: 8px 12px;
+    border: 0 none;
+    font-weight: 700;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    font-family: 'Rubik', sans-serif;
+    text-shadow: 2px 2px #000;
+	margin-bottom: 10px;
+	background: linear-gradient(to right, #5C97BF, #26A65B);
 }
 
 #RegisterBtn {
@@ -104,15 +121,14 @@ h3 {
 }
 
 .jumbotron {
-	background-image: radial-gradient(circle at center bottom, #5C97BF, #26A65B);
+background-image: radial-gradient(circle at center bottom, #5C97BF, #26A65B);
 	color: #fff;
 	transform: skew(0, -1deg);
-	box-shadow: 0px 0px 10px 10px rgba(1, 1, 1, 0.25);
+	box-shadow: 0px 0px 10px 10px rgba(1, 1, 1, 0.4);
 	margin-top: -20px;
 }
 
 .jumbotron h1 {
-	background-image: radial-gradient(circle at center bottom, #5C97BF, #26A65B);
 	color: #fff;
 	font-family: 'Lobster', cursive;
 	text-shadow: 1px 1px #303030;
@@ -120,7 +136,6 @@ h3 {
 }
 
 .jumbotron p {
-	background-image: radial-gradient(circle at center bottom, #5C97BF, #26A65B);
 	color: #fff;
 	font-family: 'Contrail One', cursive;
 	transform: skew(0, 1deg);
@@ -146,7 +161,7 @@ h3 {
     background: #fff;
     border-radius: 5px;
     margin: 15px 15px 50px 15px;
-    padding: 25px;
+    padding: 30px;
     -moz-box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     -webkit-box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -178,8 +193,8 @@ h3 {
 }
 
 .article-header {
-	width: 150px;
     height: 50px;
+    padding: 10px;
     background-color: #34495E;
     display: flex;
     justify-content: center;
@@ -244,6 +259,7 @@ border-color: #F9690E !important;
     border: 1px solid #F9690E;
 }
 
+
 .article-info-body:first-letter{
     text-transform: capitalize;
     font-size: 24px;
@@ -260,6 +276,11 @@ a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.acti
 a.list-group-item:hover, a.list-group-item:focus {
     background: rgba(38, 194, 129, 0.5);
 
+}
+
+/* FORMS */
+#create {
+    margin-top: 50px;
 }
 
 /* Comments */

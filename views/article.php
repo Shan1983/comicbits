@@ -9,7 +9,7 @@
 <div class="jumbotron text-center">
     <h1 ><?php echo $article->title;?></h1>
     <p>
-        <a href="articles.php?tag=<?php echo urlFormat($article->tag_id); ?>"
+        <a href="tags.php?tag=<?php echo urlFormat($article->tag_id); ?>"
            class="label label-primary"><?php echo $article->name ?></a>
         | Published: <?php echo formatDate($published); ?>
         | By: <a href="articles.php?user=<?php echo urlFormat($article->user_id); ?>"><?php echo $published_user ?></a>
@@ -64,7 +64,7 @@
 	<input type="hidden" id="CommentGuid" value="" />
 	<h2>Comments</h2>
 	<div class="comment-add-button">
-	    <button type="button" class="btn btn-primary comment-add">Add Comment</button>
+	    <button type="button" id="mainBtn" class="btn btn-primary comment-add">Add Comment</button>
 	</div>
 	<div class="comment-login">
 	    <p><a href="/login.php">Login</a> to comment.</p>

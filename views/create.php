@@ -17,10 +17,11 @@
         <div class="col-md-8">
             <div class="main-col">
                 <!-- TODO setup block for main curved background -->
-                <div class="block">
+                <div class="block"> 
+                    <div class="article-header">
                     <h3 class="pull-left">Create something amazing!</h3>
-                    <div class="clearfix"></div>
-                    <hr>
+                    </div>
+
     <form id="create" role="form" method="post" action="create.php">
         <div class="form-group">
             <label>Article Title:</label>
@@ -45,10 +46,8 @@
             <label>Article Body: </label>
             <textarea id="body" rows="10" cols="80" class="form-control" name="body"></textarea>
         </div>
-        <button name="lets_create" type="submit" class="btn btn-success">Create Article!</button>
+        <button name="lets_create" id="mainBtn" type="submit" class="btn btn-success pull-right">Create Article!</button>
+        <div class="clearfix"></div>
     </form>
 
-
-
-                    <hr>
 <?php include('./partials/_footer.php'); ?>

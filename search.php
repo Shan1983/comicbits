@@ -11,7 +11,7 @@ $template = new Template('views/search.php');
 
 
 if (isset($_GET['q'])) {
-    //redirect('search.php', $_GET[q], 'error');
+    //redirect('search.php', $_GET[q], 'error');) {
     $template->searchResults = search(urlFormat($_GET['q']));
 }
 

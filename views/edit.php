@@ -18,9 +18,10 @@ if(!isset($_SESSION['is_logged_in'])){
     <div class="main-col">
     <!-- TODO setup block for main curved background -->
     <div class="block">
+        <div class="article-header">
     <h3 class="pull-left">Create something amazing!</h3>
-    <div class="clearfix"></div>
-    <hr>
+    </div>
+
     <form id="create" role="form" method="post" action="edit.php?article=<?php echo $_GET['article'] ?>">
         <div class="form-group">
             <label>Article Title:</label>
@@ -45,10 +46,7 @@ if(!isset($_SESSION['is_logged_in'])){
             <label>Article Body: </label>
             <textarea id="body" rows="10" cols="80" class="form-control" name="body"></textarea>
         </div>
-        <button name="lets_edit" type="submit" class="btn btn-success">Edit Article!</button>
+        <button name="lets_edit" type="submit" id="mainBtn" class="btn btn-success pull-right">Edit Article!</button>
+        <div class="clearfix"></div>
     </form>
-
-
-
-    <hr>
 <?php include('./partials/_footer.php'); ?>

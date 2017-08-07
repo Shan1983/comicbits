@@ -70,8 +70,14 @@ function search($query) {
     $db->bind(':query', '%' . $query . '%');
 
     $results = $db->resultSet();
-
+    
+    if($results[0]->title) {
     return $results;
+    }else {
+    return false;
+    }
+
+    
 }
 
 // removes a comment.. kinda..
