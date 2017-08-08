@@ -61,10 +61,10 @@
 			$object->level = $row['level'];
 			$object->commentData = $row['comment_data'];
 			$object->commentGuid = $row['comment_guid'];
-			$object->approved = $row['approved'];
 			$object->approvedBy = $row['approved_by'];
 			$object->approvedDate = $row['approved_date'];
 			$object->approvedIpAddress = $row['approved_ip_address'];
+			$object->approved = ($row['approved'] == 1) ? true : false;
 			$object->createdDate = $row['created_date'];
 			$object->createdBy = $row['created_by'];
 			$object->createdIpAddress = $row['created_ip_address'];

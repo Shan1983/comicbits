@@ -13,7 +13,7 @@ require('../core/init.php');
 		//get userid from session
 		$userId = $_SESSION['user_id'];
 		// get from some function
-		$ipAddress = "127.0.0.1";
+		$ipAddress = $_SERVER['REMOTE_ADDR'];
 		
 		
 		if ($userId != null) {
@@ -58,10 +58,39 @@ require('../core/init.php');
 		$articleId = GetArticleId($articleGuid);
 		echo GetComments($articleId);
 	}
+	else if ($mode == "moderate-comment") {
+		
+		$userId = $_SESSION['user_id'];
+		$commentId = 0;
+		$ipAddress = $_SERVER['REMOTE_ADDR'];
+		
+		$articleGuid = isset($_POST['ArticleGuid']) ? $_POST['ArticleGuid'] : null;
+		$articleId = GetArticleId($articleGuid);
+		
+		if ($userId != null && User::IsAdmin()) {
+		
+			$commentGuid = isset($_POST['CommentGuid']) ? $_POST['CommentGuid'] : null;
+			$approved = isset($_POST['Approved']) ? $_POST['Approved'] : null;
+			
+			if (!empty($commentGuid)) {
+				$comment = Comment::GetByCommentGuid($commentGuid);
+				
+				if ($comment != null) {
+					$comment->approved = ($approved == "1") ? true : false;
+					$commentId = $comment->Save($userId, $ipAddress);
+				}
+			}
+		
+		}
+
+		echo GetComments($articleId, $commentId);
+	}
 	
 	
 	function GetComments($articleId, $focusCommentId = 0)
 	{
+		
+		$userId = $_SESSION['user_id'];
 
 		$commentModels = Array();
 		$comments = Comment::GetComments($articleId);
@@ -69,11 +98,19 @@ require('../core/init.php');
 			$commentModel = new CommentModel();
 			$commentModel->commentGuid = $comment->commentGuid;
 			$commentModel->parentGuid = $comment->parentGuid;
-			$commentModel->commentData = $comment->commentData;
+				
+			if ($comment->approved || ($userId != null && User::IsAdmin())) {
+				$commentModel->commentData = $comment->commentData;
+			}
+			else {
+				$commentModel->commentData = "[removed]";
+			}
+			
 			$commentModel->level = $comment->level;
 			$commentModel->username = $comment->username;
 			$commentModel->postDateText = GetPostDateText($comment->createdDate);
 			$commentModel->hasFocus = ($comment->commentId == $focusCommentId) ? true : false;
+			$commentModel->approved = $comment->approved;
 			$commentModels[] = $commentModel;
 		}
 		return json_encode($commentModels);
@@ -115,6 +152,7 @@ require('../core/init.php');
 		public $username;
 		public $postDateText;
 		public $hasFocus;
+		public $approved;
 	}
 	
 ?>			

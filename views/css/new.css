@@ -371,12 +371,34 @@ padding: 10px;
 			color: #333333;
 			font-size: 9pt;
 		}
+		.comment-text-disabled {
+		    color: #ff0000;
+		}
 		.comment-reply {
 			margin-top: 2px;
 			font-weight: normal;
 			color: #656c7a;
 			font-size: 8pt;
 			cursor: pointer;
+			float: left;
+		}
+		.comment-enable {
+		    padding-left: 15px;
+			margin-top: 2px;
+			font-weight: normal;
+			color: #008800;
+			font-size: 8pt;
+			cursor: pointer;
+			float: left;
+		}
+		.comment-disable {
+		    padding-left: 15px;
+			margin-top: 2px;
+			font-weight: normal;
+			color: #ff0000;
+			font-size: 8pt;
+			cursor: pointer;
+			float: left;
 		}
 		.comment-focus .comment-block {
 			background-color: #eaeaea;
