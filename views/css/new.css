@@ -48,6 +48,22 @@ h3 {
 	box-shadow: 0px 0px 2px 2px rgba(1, 1, 1, 0.25);
 }
 
+.logo {
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.6em;
+    position: relative;
+}
+
+.logo>img {
+    position:absolute;
+    left:-40px;
+    top: 1px;
+}
+
+#search {
+    min-width: 590px;
+}
+
 /* MAIN CONTENT */
 
 .icon{
@@ -172,6 +188,7 @@ background-image: radial-gradient(circle at center bottom, #5C97BF, #26A65B);
     -webkit-box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     
+    
 }
 
 .tag-block {
@@ -276,6 +293,10 @@ border-color: #F9690E !important;
     font-weight: bold;
     text-decoration: underline;
     margin-right: 2px;
+}
+
+p.article-info-body {
+    white-space: pre-wrap;
 }
 
 a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {

@@ -41,7 +41,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Comic Bit</a>
+            <a class="navbar-brand logo" href="index.php"><img src="images/logo.png" alt="logo" width="50" height="50"> ComicBit</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -56,9 +56,9 @@
                 <?php } ?>
             </ul>
             <div class="col-sm-3 col-md-6">
-                <form class="navbar-form" role="search" action="search.php?" method="get">
+                <form  class="navbar-form" role="search" action="search.php?" method="get">
                     <div class="input-group">
-                        <input name="q" type="text" class="form-control" placeholder="Find something.." name="q">
+                        <input id="search" name="q" type="text" class="form-control" placeholder="Find something amazing.." name="q">
                         <div class="input-group-btn">
                             <button  class="btn btn-default" type="submit">Search</button>
                         </div>
