@@ -42,10 +42,21 @@ class Article {
                    ON articles.tag_id = tags.id
                    ORDER BY created_at DESC
                    ');
+        
+        
         // get the result from the query
-        $results = $this->db->resultSet();
+        $results = $this->db->resultSet_api();
         // finally return the set
+        
+      
+     
+     
+  
+     
+     
 
+        
+        
         return $results;
         
     }

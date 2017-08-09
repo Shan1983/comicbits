@@ -18,6 +18,11 @@ $template->articleCount = $articles->articleCount();
 $template->usersCount = $articles->usersCount();
 
 
+$template->json = $json = json_encode($articles->getAllArticlesAPI(),JSON_UNESCAPED_UNICODE);
+
+
+
+
 
 // to display the template..
 echo $template;

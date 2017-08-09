@@ -70,6 +70,12 @@ class Database {
         $this->execute();
         return $this->statement->fetchAll(PDO::FETCH_OBJ);
     }
+    
+    public function resultSet_api() {
+        $this->execute();
+        return $this->statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 
     // get a single result..
     public function single() {
