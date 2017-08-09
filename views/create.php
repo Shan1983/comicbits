@@ -39,14 +39,35 @@
             </select>
         </div>
         <div class="form-group">
-                            <label>Upload article image <small>(Optional)</small></label>
-                            <input type="file" name="article-image">
-                            <p class="help-block"></p>
-                        </div>
-<!--        <div class="form-group">-->
-<!--            <label for="avatar">Upload article header image</label>-->
-<!--            <input type="file" name="password-confirm">-->
-<!--        </div>-->
+            <label>Upload article image <small>(Optional)</small></label>
+            <div style="border: 1px solid #cccccc; padding: 15px; border-radius: 4px; margin-bottom: 15px;">
+            <div class="row">
+                <div class="col-md-8">
+                    <input type="file" id="fileInput" name="article-image" />
+                </div>
+                <div class="col-md-4">
+                    <div id="dropContainer" style="border:1px dashed #666666; height: 80px; text-align: center; padding-top: 30px; color: #666666;">
+                           Drag Image Here
+                    </div>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+            // dragover and dragenter events need to have 'preventDefault' called
+            // in order for the 'drop' event to register. 
+            // See: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Drag_operations#droptargets
+                dropContainer.ondragover = dropContainer.ondragenter = function(evt) {
+                  evt.preventDefault();
+                };
+                
+                dropContainer.ondrop = function(evt) {
+                  // pretty simple -- but not for IE :(
+                  fileInput.files = evt.dataTransfer.files;
+                  evt.preventDefault();
+                };
+            </script>
+                        
+                    
         <div class="form-group">
             <label>Article Body: </label>
             <textarea id="body" rows="10" cols="80" class="form-control" name="body"></textarea>
