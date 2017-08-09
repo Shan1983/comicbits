@@ -22,7 +22,7 @@
                     <h3 class="pull-left">Create something amazing!</h3>
                     </div>
 
-    <form id="create" enctype="multipart/form-data" role="form" method="post" action="create.php">
+    <form id="create" role="form" method="post" action="create.php">
         <div class="form-group">
             <label>Article Title:</label>
             <input type="text" class="form-control" name="title" placeholder="Give your article a title">
@@ -38,11 +38,13 @@
 
             </select>
         </div>
+        <form enctype="multipart/form-data" role="form" method="post" action="create.php">
         <div class="form-group">
                             <label>Upload article image <small>(Optional)</small></label>
                             <input type="file" name="article-image">
                             <p class="help-block"></p>
-                        </div>
+        </div>
+        </form>
 <!--        <div class="form-group">-->
 <!--            <label for="avatar">Upload article header image</label>-->
 <!--            <input type="file" name="password-confirm">-->

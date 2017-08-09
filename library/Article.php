@@ -29,6 +29,26 @@ class Article {
         return $results;
 
     }
+    
+     // grab all the articles
+    public function getAllArticlesAPI() {
+        // get all articles with this query
+        $this->db->query(
+            'SELECT articles.*, users.username, tags.name
+                   FROM articles
+                   INNER JOIN users
+                   ON articles.user_id = users.id
+                   INNER JOIN tags
+                   ON articles.tag_id = tags.id
+                   ORDER BY created_at DESC
+                   ');
+        // get the result from the query
+        $results = $this->db->resultSet();
+        // finally return the set
+
+        return $results;
+        
+    }
 
     // gets total articles for stats
     public function articleCount() {

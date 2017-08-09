@@ -7,6 +7,13 @@ require('core/init.php');
 $articles = new Article();
 
 $users = new User();
+if(isset($_POST['article-image'])) {
+if ($articles->uploadArticleImage()){
+        $data['image'] = $_FILES['article-image']['name']; 
+    }else {
+        $data['image'] = 'default.png';
+    }
+}
 
 // use the template..
 $template = new Template('views/create.php');
@@ -18,11 +25,6 @@ if(isset($_POST['lets_create'])) {
     $data['body'] = $_POST['body'];
     $data['tag'] = $_POST['tag'];
     
-    if ($articles->uploadArticleImage()){
-        $data['image'] = $_FILES['article-image']['name']; 
-    }else {
-        $data['image'] = 'default.png';
-    }
     $data['user_id'] = $_SESSION['user_id'];
 
     $required_fields = ['title', 'body', 'tag'];
