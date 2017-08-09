@@ -176,7 +176,7 @@ class User {
     }
     
     public static function IsAdmin() {
-        return ($_SESSION['user_id'] != null && $_SESSION['membership'] == "1") ? true : false;
+        return (userType($_SESSION['user_id']) != null && $_SESSION['membership'] == "1") ? true : false;
     }
     
     public static function IsLoggedIn() {

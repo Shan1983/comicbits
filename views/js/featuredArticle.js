@@ -1,8 +1,8 @@
-// Not using this in particular, just want to make sure I have the correct node
-
 $(document).ready(function() {
-    
-//$(".article-info-featured").css("background-color", "blue");
+
+    var theDiv = $(".article-info-featured");
+    //$(".article-info-featured").css("border-style", "inset");
+    $(theDiv).css("border-style", "inset");
 
 });
 

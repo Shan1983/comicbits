@@ -266,8 +266,6 @@ border-color: #F9690E !important;
 
 /* Featured Article - N */
 .article-info-featured {
-	border: 5px solid navy;
-	background-color: lightgray;
 	padding: 5px;
 	margin:40px 0 20px 0;
 }
@@ -406,3 +404,4 @@ padding: 10px;
 		.no-comment {
 			padding-top: 10px;
 		}
+	

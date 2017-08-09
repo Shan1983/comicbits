@@ -17,6 +17,17 @@ $template->articles = $articles->getAllArticles();
 $template->articleCount = $articles->articleCount();
 $template->usersCount = $articles->usersCount();
 
+$data = [];
+$data['articles'] = $articles->getAllArticles();
+
+function getAllTheArticles($data) {
+    
+    return json_encode($data['articles']);
+}
+
+var_dump(getAllTheArticles($data));
+die();
+
 
 // to display the template..
 echo $template;

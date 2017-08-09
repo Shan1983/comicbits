@@ -10,6 +10,7 @@ $articles = new Article();
 // use the template..
 $template = new Template('views/article.php');
 
+
 // get the article id from the url
 $articleId = isset($_GET['article']) ? $_GET['article'] : null;
 
@@ -25,6 +26,7 @@ $template->published_user = getUserById($articles->getArticle($articleId)->user_
 $template->articles = $articles->getAllArticles();
 $template->articleCount = $articles->articleCount();
 $template->usersCount = $articles->usersCount();
+
 
 if(isset($_POST['lets_comment'])){
     $article_id = $_GET['article'];
@@ -80,7 +82,6 @@ if ($_POST['do_remove_featured']) {
 //     }
 
 // }
-
 
 
 // to display the template..
