@@ -21,7 +21,7 @@ $( document ).ready(function() {
 	$(".drag-progress-bar").hide();
 	$(".image-load-form").show();
 	$(".image-loaded-form").hide();
-	$(".article-image-display").hide();
+	$(".article-image-display").remove();
 	$(".image-drag-upload-error-alert").hide();
 	
 	
@@ -38,7 +38,7 @@ function removeImage() {
 	$(".image-load-form").show();
 	$(".image-loaded-form").hide();
 	$("#hidArticleImage").val('');
-	$(".article-image-display").hide();
+	$(".article-image-display").remove();
 	
 }
 
@@ -137,10 +137,12 @@ function uploadImage(mode, files) {
 }
 
 function imageUploaded(imagefile) {
-    $(".article-image-display").attr('src', '/images/article_images/' + imagefile);
-	setTimeout(function(){
-	  $(".article-image-display").show();
-	}, 500);
+    $(".article-image-display").remove();
+    $('<img />').attr({
+            'class': 'article-image-display',
+            'src': '/images/article_images/' + imagefile
+        }).appendTo('.image-loaded-form');
+
 	$(".image-load-form").hide();
 	$(".image-loaded-form").show();
 }
