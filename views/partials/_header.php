@@ -27,6 +27,10 @@
 	<script type="text/javascript" src="views/js/comments.js"></script>
 	<?php } ?>
 	
+	 <?php if (basename($_SERVER['PHP_SELF']) == "create.php") { ?>
+	<script type="text/javascript" src="views/js/articleImage.js"></script>
+	<?php } ?>
+	
 	   <?php if (basename($_SERVER['PHP_SELF']) == "index.php") { ?>
 	<script type="text/javascript" src="views/js/featuredArticle.js"></script>
 	<?php } ?>
