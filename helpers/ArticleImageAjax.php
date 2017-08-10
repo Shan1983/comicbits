@@ -16,21 +16,27 @@
         
         $extension = end($tmp);
 
-        // get the end part of the file
-        $newfilename = hash('sha256', reset($tmp) . time()) . "." . $extension;
+        if ((($_FILES['file']['type'] == "image/gif")
+                || ($_FILES['file']['type'] == "image/jpeg")
+                || ($_FILES['file']['type'] == "image/jpg")
+                || ($_FILES['file']['type'] == "image/png"))
+            && ($_FILES['file']['size'] < 2000000)
+            && in_array($extension, $allowedExtensions)
+        ) {
+            
+            // get the end part of the file
+            $newfilename = hash('sha256', reset($tmp) . time()) . "." . $extension;
 
+            move_uploaded_file($_FILES['file']['tmp_name'], dirname( __FILE__ ) . '../../images/article_images/' . $newfilename);
         
-
-        move_uploaded_file($_FILES['file']['tmp_name'], dirname( __FILE__ ) . '../../images/article_images/' . $newfilename);
-
-        echo $newfilename;
-
+            echo $newfilename;
+        }
+        else {
+            echo "ERROR:There is an issue with the file you uploaded";
+        }
 		
 	}
-	
-	
-	
-	//echo "ERROR:There is an error";
+
 	
 	
 	

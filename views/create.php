@@ -52,12 +52,15 @@
                             <button type="button" class="btn btn-primary image-add">Add Image</button>
                         </div>
                         <div class="col-md-8">
-                            <div id="dropZone" style="border:1px dashed #666666; height: 80px; text-align: center; padding-top: 30px; color: #666666;">
+                            <div id="dropZone" class="image-upload-drop-zone">
                                    Drag Image Here
                             </div>
                             <div class="progress drag-progress-bar">
                         		<div id="pbDragImageUpload" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
+                            <div class="alert alert-danger image-drag-upload-error-alert">
+        						<div class="image-drag-upload-error-message"></div>
+        					</div>
                         </div>
                     </div>
                 </div>
@@ -77,7 +80,7 @@
         			e.stopPropagation();
         			e.preventDefault();
         			var files = e.dataTransfer.files;
-        
+                    $(".image-drag-upload-error-alert").hide();
         			$("#pbDragImageUpload").css('width', 0 + '%').attr('aria-valuenow', 0);
         			$(".drag-progress-bar").show();
         			uploadImage('drag', files);

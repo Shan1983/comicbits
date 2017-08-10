@@ -420,6 +420,10 @@ a.list-group-item:hover, a.list-group-item:focus {
     margin-bottom: 0 !important;
     margin-top: 10px;
 }
+.image-drag-upload-error-alert {
+    margin-bottom: 0 !important;
+    margin-top: 10px; 
+}
 .image-loaded-form {
     border: 1px solid #cccccc;
     padding: 15px;
@@ -434,4 +438,11 @@ a.list-group-item:hover, a.list-group-item:focus {
     padding: 15px;
     border-radius: 4px; 
     margin-bottom: 15px;
+}
+.image-upload-drop-zone {
+    border:1px dashed #666666;
+    height: 80px;
+    text-align: center;
+    padding-top: 30px;
+    color: #666666;
 }

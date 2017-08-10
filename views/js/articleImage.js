@@ -22,6 +22,7 @@ $( document ).ready(function() {
 	$(".image-load-form").show();
 	$(".image-loaded-form").hide();
 	$(".article-image-display").hide();
+	$(".image-drag-upload-error-alert").hide();
 	
 	
 });
@@ -101,7 +102,7 @@ function uploadImage(mode, files) {
 					displayBrowseImageUplodError(result.replace('ERROR:', ''));
 				}
 				else {
-					console.log(result.replace('ERROR:', ''))
+					displayDragImageUplodError(result.replace('ERROR:', ''));
 				}
             }
             else {
@@ -128,8 +129,8 @@ function uploadImage(mode, files) {
 				displayBrowseImageUplodError(err.statusText);
 			}
 			else {
-					console.log(err.statusText)
-				}
+				displayDragImageUplodError(err.statusText);
+			}
         }
     });
 
@@ -137,7 +138,9 @@ function uploadImage(mode, files) {
 
 function imageUploaded(imagefile) {
     $(".article-image-display").attr('src', '/images/article_images/' + imagefile);
-	$(".article-image-display").show();
+	setTimeout(function(){
+	  $(".article-image-display").show();
+	}, 500);
 	$(".image-load-form").hide();
 	$(".image-loaded-form").show();
 }
@@ -149,3 +152,14 @@ function displayBrowseImageUplodError(errorMessage) {
     $(".image-upload-error-alert").show();
     $(".image-upload-error-message").html(errorMessage);
 }
+
+function displayDragImageUplodError(errorMessage) {
+    $(".drag-progress-bar").hide();
+    $("#pbDragImageUpload").addClass("reseting").css("width", 0).attr('aria-valuenow', 0).removeClass("reseting");
+    $(".image-drag-upload-error-alert").show();
+    $(".image-drag-upload-error-message").html(errorMessage);
+    setTimeout(function(){
+	    $(".image-drag-upload-error-alert").hide();
+	}, 3000);
+}
+
