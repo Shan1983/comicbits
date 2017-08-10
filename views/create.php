@@ -8,24 +8,6 @@
     ?>
     
     
-    <style type="text/css">
-
-		.article-image-display {
-			max-width: 100%;
-			max-height: 100%;
-		}
-		.article-remove-image {
-			position: absolute;
-			top: 3px;
-			right: 8px;
-			cursor: pointer;
-		}
-		.drag-progress-bar {
-		    margin-bottom: 0 !important;
-		    margin-top: 10px;
-		}
-	</style>
-    
 <div class="jumbotron text-center">
     <h1 >Help us make the Best. Blog. Ever!</h1>
     <p >Simply fill out the form below using the friendly text editor!</p>
@@ -64,7 +46,7 @@
             <input type="hidden" id="hidArticleImage" name="hidArticleImage" value="" />
             
             <div class="image-load-form">
-                <div style="border: 1px solid #cccccc; padding: 15px; border-radius: 4px; margin-bottom: 15px;">
+                <div class="image-control-wrapper">
                     <div class="row">
                         <div class="col-md-4">
                             <button type="button" class="btn btn-primary image-add">Add Image</button>
@@ -80,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <div class="image-loaded-form" style="border: 1px solid #cccccc; padding: 15px; border-radius: 4px; margin-bottom: 15px; position: relative; height: 100px; text-align: center;">
+            <div class="image-loaded-form">
 	            <img class="article-image-display" src="" />
 	            <div class="article-remove-image"><i class="fa fa-times" aria-hidden="true"></i></div>
             </div>
